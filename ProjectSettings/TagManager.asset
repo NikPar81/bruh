@@ -8,7 +8,6 @@ TagManager:
   - mouseEnd
   - Cat
   - Mouse
-  - enemy
   layers:
   - Default
   - TransparentFX

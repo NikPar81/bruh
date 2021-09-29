@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 
 public class Food : MonoBehaviour
 {
@@ -29,7 +28,6 @@ public class Food : MonoBehaviour
         if((kolbasa <= 0) | (sir <= 0))
         {
             Debug.Log("Smert");
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
     }
 }
