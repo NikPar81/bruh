@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class cmove : MonoBehaviour
 {
@@ -73,6 +74,13 @@ public class cmove : MonoBehaviour
         if (catEnd.gameObject.tag == "catEnd")
         {
             PlayerPrefs.SetInt("catEnd", 1);
+        }
+    }
+    void OnCollisionEnter2D(Collision2D enemy)
+    {
+        if (enemy.gameObject.tag == "enemy")
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
     }
     void Flip()

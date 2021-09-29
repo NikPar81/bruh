@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class mmove : MonoBehaviour
 {
@@ -64,6 +65,14 @@ public class mmove : MonoBehaviour
         if (mouseEnd.gameObject.tag == "mouseEnd")
         {
             PlayerPrefs.SetInt("mouseEnd", 1);
+        }
+
+    }
+    void OnCollisionEnter2D(Collision2D enemy)
+    {
+        if (enemy.gameObject.tag == "enemy")
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
     }
     void Flip()
