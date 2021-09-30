@@ -41,11 +41,15 @@ public class cmove : MonoBehaviour
         {
             Flip();
         }
-        if(moveInput != 0)
+        if((moveInput != 0) &(isGrounded == true))
         {
             anim.Play("CatWalk");
         }
-        else
+        if (isGrounded == true)
+        {
+            //anim.Play("CatFly");
+        }
+        if ((moveInput == 0) & (isGrounded == true))
         {
             anim.Play("CatStay");
         }
@@ -60,12 +64,14 @@ public class cmove : MonoBehaviour
         {
             rb.velocity = Vector2.up * jumpForce;
             extraJumps--;
+            anim.Play("CatJump");
 
 
         }
         else if (Input.GetKey(KeyCode.W) && extraJumps == 0 && isGrounded == true)
         {
             rb.velocity = Vector2.up * jumpForce;
+            anim.Play("CatJump");
         }
 
     }
@@ -81,6 +87,13 @@ public class cmove : MonoBehaviour
         if (enemy.gameObject.tag == "enemy")
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
+    }
+    public void Upal()
+    {
+        if (isGrounded == true)
+        {
+            //anim.Play("CatGrounding");
         }
     }
     void Flip()

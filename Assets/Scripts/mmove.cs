@@ -20,11 +20,13 @@ public class mmove : MonoBehaviour
     private int extraJumps;
     public int extraJumpsValue;
     public int mouseEnd = 0;
+    public Animator anim;
     public void Start()
     {
         PlayerPrefs.SetInt("mouseEnd", 0);
         extraJumps = extraJumpsValue;
         rb = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
     }
     private void FixedUpdate()
     {
@@ -38,6 +40,14 @@ public class mmove : MonoBehaviour
         else if (facingRight == true && moveInput < 0)
         {
             Flip();
+        }
+        if ((moveInput != 0) & (isGrounded == true))
+        {
+            anim.Play("RatWalk");
+        }
+        else
+        {
+            anim.Play("RatNorm");
         }
 
     }
