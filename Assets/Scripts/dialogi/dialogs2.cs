@@ -19,27 +19,27 @@ public class dialogs2 : MonoBehaviour
     {
         if (collision.tag == "Mouse")
         {
-            panel2.SetActive(true);
+            panel1.SetActive(true);
 
         }
         if (collision.tag == "Cat")
         {
-            panel1.SetActive(true);
-            
+            panel2.SetActive(true);
+
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
-
         if (collision.tag == "Mouse")
         {
-            
-            panel2.SetActive(false);
+            panel1.SetActive(false);
+
         }
+
         if (collision.tag == "Cat")
         {
-            panel1.SetActive(false);
-            
+            panel2.SetActive(false);
+
         }
     }
 }
