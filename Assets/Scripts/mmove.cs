@@ -45,9 +45,13 @@ public class mmove : MonoBehaviour
         {
             anim.Play("RatWalk");
         }
-        else
+        if ((moveInput == 0) & (isGrounded == true))
         {
             anim.Play("RatNorm");
+        }
+        if (isGrounded == false)
+        {
+            anim.Play("RatFly");
         }
 
     }
@@ -61,8 +65,6 @@ public class mmove : MonoBehaviour
         {
             rb.velocity = Vector2.up * jumpForce;
             extraJumps--;
-
-
         }
         else if (Input.GetKey(KeyCode.UpArrow) && extraJumps == 0 && isGrounded == true)
         {
